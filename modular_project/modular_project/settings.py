@@ -25,6 +25,9 @@ SECRET_KEY = 'django-insecure-e!=b#u9*$9+_=dc1kfahi0n-xcte!ywzspqse!v!jq7!wk%@#3
 
 # SECURITY WARNING: don't run with debug turned on in production!
 ALLOWED_HOSTS = ['*']
+CSRF_TRUSTED_ORIGINS = [
+    "https://dy-modular-app-prod.up.railway.app/",
+]
 DEBUG = False
 
 COMMANDS = ['makemigrations','migrate']
@@ -62,6 +65,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware'
 ]
 
 ROOT_URLCONF = 'modular_project.urls'

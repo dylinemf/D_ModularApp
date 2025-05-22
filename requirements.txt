@@ -3,3 +3,4 @@ django-widget-tweaks
 Django
 gunicorn
 requests==2.25.1
+whitenoise
