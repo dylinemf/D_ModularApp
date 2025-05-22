@@ -29,7 +29,7 @@ CSRF_TRUSTED_ORIGINS = [
     "https://dy-modular-app-prod.up.railway.app/",
     "https://dy-modular-app-prod.up.railway.app/admin/login/?next=/admin/"
 ]
-DEBUG = False
+DEBUG = True
 
 COMMANDS = ['makemigrations','migrate']
 
