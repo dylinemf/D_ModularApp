@@ -2,7 +2,7 @@
 ## Description
 Modular Engine to install and uninstall modules
 
-# How to Run Locally
+## How to Run Locally
 Run / double-click the `run_modular_server.bat` for Windows, and `run_modular_server.sh` for Linux/macOS
 
 ## Credentials
