@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="icon" href="{% static 'images/logo.png' %}" type="image/png">
+        <title>Modular App</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body class="bg-gray-100 flex items-center justify-center min-h-screen">
+        <div class="text-center space-y-6">
+            <h1 class="text-3xl font-bold text-gray-800">Welcome to Modular App</h1>
+            <div class="space-x-4">
+                <!-- Modules Page -->
+                <a href="{% url 'modules-dashboard' %}">
+                    <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded shadow">Module Management</button>
+                </a>
+                <!-- Django Admin Page -->
+                <a href="/admin/">
+                    <button class="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded shadow">Admin Dashboard</button>
+                </a>
+            </div>
+        </div>
+    </body>
+</html>

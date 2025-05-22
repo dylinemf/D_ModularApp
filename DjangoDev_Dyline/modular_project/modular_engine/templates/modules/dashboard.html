@@ -1,0 +1,84 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="icon" href="{% static 'images/logo.png' %}" type="image/png">
+        <title>Dashboard</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    
+    <body class="bg-gray-100 p-8">
+        <div class="max-w-4xl mx-auto bg-white p-6 rounded shadow">
+            <!-- Breadcrumbs -->
+            <nav class="text-sm text-gray-500 mb-6">
+                <ol class="list-reset flex">
+                    <li><a href="{% url 'home' %}" class="text-blue-600 hover:underline">Home</a></li>
+                    <li><span class="mx-2">/</span></li>
+                    <li class="text-gray-700">Modules</a></li>
+                </ol>
+            </nav>
+            <!-- Title -->
+            <h1 class="text-2xl font-bold mb-4">Module Management</h1>
+            <!-- Table -->
+            <table class="w-full table-auto text-left border">
+                <thead class="bg-gray-200">
+                    <tr>
+                        <th class="p-2">Nama</th>
+                        <th class="p-2">Status</th>
+                        <th class="p-2">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for mod in modules %}
+                    <tr class="border-t">
+                        <td class="p-2">
+                            {% if mod.installed %}
+                            <a href="/apps/{{ mod.name|lower }}/" class="text-blue-600 underline">
+                                    {{ mod.label }}
+                            </a>
+                            {% else %}
+                            <div class="flex items-center gap-2 relative group">
+                                <!-- Label -->
+                                {{ mod.label }} 
+                                <!-- Icon info -->
+                                <div class="relative">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-blue-500 cursor-pointer" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <title>Info</title>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M12 2a10 10 0 100 20 10 10 0 000-20z" />
+                                    </svg>
+                                    <!-- Tooltip -->
+                                    <div class="absolute top-full left-1/2 -translate-x-1/2 mt-1 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition pointer-events-none z-10 whitespace-nowrap">
+                                        If you would like to visit, you can go to this endpoint: /apps/{{ mod.name|lower }}/
+                                    </div>
+                                </div>
+                            </div>
+                            {% endif %}
+                        </td>
+                        <td class="p-2">
+                            {% if mod.installed %}
+                            <span class="text-green-600 font-semibold">Installed</span>
+                            {% else %}
+                            <span class="text-red-600">Not Installed</span>
+                            {% endif %}
+                        </td>
+                        <td class="p-2 space-x-2">
+                            {% if not mod.installed %}
+                            <a href="{% url 'install-module' mod.pk %}" class="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded text-sm">
+                                Install
+                            </a>
+                            {% else %}
+                            <a href="{% url 'upgrade-module' mod.pk %}" class="bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1 rounded text-sm">
+                                Upgrade
+                            </a>
+                            <a href="{% url 'uninstall-module' mod.pk %}" class="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded text-sm">
+                                Uninstall
+                            </a>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>
