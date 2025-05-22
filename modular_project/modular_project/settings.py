@@ -27,6 +27,7 @@ SECRET_KEY = 'django-insecure-e!=b#u9*$9+_=dc1kfahi0n-xcte!ywzspqse!v!jq7!wk%@#3
 ALLOWED_HOSTS = ['*']
 CSRF_TRUSTED_ORIGINS = [
     "https://dy-modular-app-prod.up.railway.app/",
+    "https://dy-modular-app-prod.up.railway.app/admin/login/?next=/admin/"
 ]
 DEBUG = False
 
