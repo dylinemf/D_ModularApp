@@ -26,8 +26,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY", "development-unsafe-key")
 # SECURITY WARNING: don't run with debug turned on in production!
 ALLOWED_HOSTS = ['*']
 CSRF_TRUSTED_ORIGINS = [
-    "https://dy-modular-app-prod.up.railway.app/",
-    "https://dy-modular-app-prod.up.railway.app/admin/login/?next=/admin/"
+    "https://dy-modular-app-prod.up.railway.app/"
 ]
 DEBUG = True
 
