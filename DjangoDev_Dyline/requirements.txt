@@ -1,5 +1,5 @@
 Django
-dj-database-url
 django-widget-tweaks
+Django
+gunicorn
 requests==2.25.1
-psycopg2-binary
