@@ -14,3 +14,6 @@ Run / double-click the `run_modular_server.bat` for Windows, and `run_modular_se
 
  ## A bit of Docs
  ERD and Flowchart are provided as a `.png` file in a workdir
+
+ ## Live App
+ The project has been deployed in this <a href ='https://dy-modular-app-prod.up.railway.app/'>Go to app</a>
